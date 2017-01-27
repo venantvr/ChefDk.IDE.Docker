@@ -1,1 +1,1 @@
-Creates a ChefDk environment.
+Creates a ChefDk environment
