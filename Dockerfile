@@ -54,9 +54,11 @@ RUN sudo sed -i 's/BIG-REQUESTS/_IG-REQUESTS/' /usr/lib/x86_64-linux-gnu/libxcb.
 ##########################################
 RUN rm -f /tmp/.X1-lock && rm -f /tmp/.X11-unix/X1
 
+##########################################
 # Set user for VNC server
 # Set default password
 # Copy VNC script that handles restarts
+##########################################
 ENV USER root
 COPY password.txt .
 RUN cat password.txt password.txt | vncpasswd && rm password.txt
