@@ -47,7 +47,13 @@ RUN wget https://az764295.vo.msecnd.net/stable/ee428b0eead68bf0fb99ab5fdc4439be2
 RUN dpkg -i code_1.8.1-1482158209_amd64.deb
 
 # Source : http://stackoverflow.com/questions/33984906/cant-launch-visual-studio-code-on-ubuntu
-RUN sudo sed -i 's/BIG-REQUESTS/_IG-REQUESTS/' /usr/lib/x86_64-linux-gnu/libxcb.so.1
+RUN sed -i 's/BIG-REQUESTS/_IG-REQUESTS/' /usr/lib/x86_64-linux-gnu/libxcb.so.1
+
+##########################################
+# Extensions
+##########################################
+RUN code --user-data-dir=/vscode.extensions --install-extension PeterJausovec.vscode-docker
+RUN code --user-data-dir=/vscode.extensions --install-extension henriiik.docker-linter
 
 ##########################################
 # Finalisation
