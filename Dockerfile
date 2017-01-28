@@ -43,6 +43,7 @@ RUN apt-get -y install tree
 # Installation de visual studio code
 ##########################################
 RUN apt-get -y -f install
+RUN apt-get -y install libnss3
 RUN wget https://az764295.vo.msecnd.net/stable/ee428b0eead68bf0fb99ab5fdc4439be227b6281/code_1.8.1-1482158209_amd64.deb
 RUN dpkg -i code_1.8.1-1482158209_amd64.deb
 
@@ -54,6 +55,7 @@ RUN sed -i 's/BIG-REQUESTS/_IG-REQUESTS/' /usr/lib/x86_64-linux-gnu/libxcb.so.1
 ##########################################
 RUN code --user-data-dir=/vscode.extensions --install-extension PeterJausovec.vscode-docker
 RUN code --user-data-dir=/vscode.extensions --install-extension henriiik.docker-linter
+RUN code --user-data-dir=/vscode.extensions --install-extension Pendrica.Chef
 
 ##########################################
 # Finalisation
